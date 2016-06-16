@@ -4,32 +4,23 @@ public class Solution {
         if(len<2) return s;
         
         boolean[][] dp=new boolean[len][len];
-        int start=0, end=s.length()-1;
         int max=0;
-        for(int i=0;i<len;i++){
-            dp[i][i]=true;
-            if(i+1<len&&s.charAt(i)==s.charAt(i+1)){
-                dp[i][i+1]=true;
-                max=2;
-                start=i;
-                end=i+1;
-            } 
-        }
+        String result="";
         for(int i=len-1;i>=0;i--){
             for(int j=i;j<len;j++){
-                if(j-i>=2){
-                    if(s.charAt(i)==s.charAt(j)&&(dp[i+1][j-1])){
+                if(s.charAt(i)==s.charAt(j)&&(j-i<3||dp[i+1][j-1])){
+                   
+                
                         dp[i][j]=true;
                         int cur=j-i+1;
                         if(cur>max){
                             max=cur;
-                            start=i;
-                            end=j;
+                            result=s.substring(i,j+1);
                         }
-                    }
+                    
                 }
             }
         }
-        return s.substring(start,end+1);
+        return result;
     }
 }
