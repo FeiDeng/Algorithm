@@ -9,31 +9,34 @@
  */
 public class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        List<List<Integer>> result= new ArrayList<>();
+        List<List<Integer>> result=new ArrayList<>();
         if(root==null) return result;
-        ArrayList<Integer> temp=new ArrayList<>();
-        dfs(root,sum,0,temp,result);
-        
+        helper(root,sum,new ArrayList<Integer>(), result);
         return result;
     }
     
-    public void dfs(TreeNode root, int sum,int count, List<Integer> temp, List<List<Integer>> result){
-        count=count+root.val;
-        temp.add(root.val);
-        if(root.left==null&&root.right==null&&count==sum){
-            result.add(new ArrayList<Integer> (temp));
-            return;
-        }
+    public void helper(TreeNode root, int sum, List<Integer> temp, List<List<Integer>> result){
+        int remain=sum-root.val;
+        //if(remain>=0){
+            temp.add(root.val);
+            if(root.left==null&&root.right==null&&remain==0){
+                result.add(new ArrayList<Integer> (temp));
+                return;
+            }
         
-        if(root.left!=null){
-             dfs(root.left,sum,count,temp,result);
-             temp.remove(temp.size()-1);
-        }
-        
-        if(root.right!=null){
-            dfs(root.right,sum,count,temp,result);
-            temp.remove(temp.size()-1);
-        }
+           
+                if(root.left!=null) {
+                    helper(root.left,remain,temp,result);
+                     temp.remove(temp.size()-1);
+                    
+                }
+                if(root.right!=null) {
+                    helper(root.right,remain,temp,result);
+                     temp.remove(temp.size()-1);
+                }
             
+           
+       // }
+        
     }
 }
