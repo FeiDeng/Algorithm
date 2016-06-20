@@ -30,13 +30,13 @@ public class NumMatrix {
 
     public int sumRegion(int row1, int col1, int row2, int col2) {
         if(m==0||n==0) return 0;
-        return sum(row2+1,col2+1)+sum(row1,col1)-sum(row2+1,col1)-sum(row1,col2+1);
+        return sum(row2,col2)+sum(row1-1,col1-1)-sum(row2,col1-1)-sum(row1-1,col2);
     }
     
     public int sum(int row, int col){
         int sum=0;
-        for(int i=row;i>0;i-=i&(-i)){
-            for(int j=col;j>0;j-=j&(-j)){
+        for(int i=row+1;i>0;i-=i&(-i)){
+            for(int j=col+1;j>0;j-=j&(-j)){
                 sum+=tree[i][j];
             }
         }
