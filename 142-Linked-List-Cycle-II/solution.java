@@ -14,7 +14,7 @@ public class Solution {
         if(head==null||head.next==null) return null;
         ListNode fast=head;
         ListNode slow=head;
-        while(fast.next!=null&&fast.next.next!=null){
+        while(fast!=null&&fast.next!=null){
             fast=fast.next.next;
             slow=slow.next;
             if(fast==slow){
@@ -22,7 +22,7 @@ public class Solution {
             }
         }
         
-        if(fast.next==null||fast.next.next==null){
+        if(fast==null||fast.next==null){
             return null;
         }
         fast=head;
