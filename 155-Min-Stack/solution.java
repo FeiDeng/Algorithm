@@ -20,11 +20,11 @@ public class MinStack {
     }
     
     public int top() {
-        return stack.isEmpty()==true?0:stack.peek();
+        return stack.peek();
     }
     
     public int getMin() {
-        return min.isEmpty()==true?0:min.peek();
+        return min.peek();
     }
 }
 
