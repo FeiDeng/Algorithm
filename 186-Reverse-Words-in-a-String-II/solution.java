@@ -3,17 +3,16 @@ public class Solution {
         
         if(s==null||s.length<2) return;
         swap(s,0,s.length-1);
-        int start=-1,end=0;
+        int start=0,end=1;
         while(end<s.length){
             if(s[end]==' '){
-                swap(s,start+1,end-1);
-                start=end;
-                end=start+1;
-            }else{
-                end++;
+                swap(s,start,end-1);
+                start=end+1;
             }
+                end++;
+            
         }
-        swap(s,start+1,s.length-1);
+        swap(s,start,s.length-1);
     }
     
     public void swap(char[] s,int start,int end){
