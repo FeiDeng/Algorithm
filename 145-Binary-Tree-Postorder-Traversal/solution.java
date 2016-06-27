@@ -9,7 +9,7 @@
  */
 public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> res=new LinkedList<>();
+        LinkedList<Integer> res=new LinkedList<>();
         if(root==null) return res;
         Stack<TreeNode> stack=new Stack<>();
         //stack.push(root);
@@ -17,7 +17,7 @@ public class Solution {
         TreeNode cur=root;
         while(cur!=null||!stack.isEmpty()){
            if(cur!=null){
-               res.add(0,cur.val);
+               res.addFirst(cur.val);
                stack.push(cur);
                cur=cur.right;
            }else{
