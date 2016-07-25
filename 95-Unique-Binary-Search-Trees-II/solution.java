@@ -20,6 +20,7 @@ public class Solution {
             return result;
         }
         
+        
         for(int i=start;i<=end;i++){
             List<TreeNode> lefts=dfs(start,i-1);
             List<TreeNode> rights=dfs(i+1,end);
