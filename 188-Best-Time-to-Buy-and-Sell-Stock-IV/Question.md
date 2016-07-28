@@ -16,7 +16,7 @@ Special thanks to [@Freezen](https://oj.leetcode.com/discuss/user/Freezen) for a
 
 <div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: none;">[Dynamic Programming](/tag/dynamic-programming/)</span></div>
+<span class="hidebutton">[Dynamic Programming](/tag/dynamic-programming/)</span></div>
 
 <div>
 
