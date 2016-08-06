@@ -1,19 +1,18 @@
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int[] res=new int[2];
-        if(numbers.length<2) return res;
-        int i=0,j=numbers.length-1;
-        while(i<j){
-            if(numbers[i]+numbers[j]==target){
-                res[0]=i+1;
-                res[1]=j+1;
-                return res;
-            }else if(numbers[i]+numbers[j]<target){
-                i++;
+        int[] result=new int[2];
+        int start = 0, end = numbers.length - 1;
+        while (start < end){
+            if (numbers[start] + numbers[end] == target){
+                result[0] = start + 1;
+                result[1] = end + 1;
+                return result;
+            }else if (numbers[start]+numbers[end] > target){
+                end--;
             }else{
-                j--;
+                start++;
             }
         }
-        return res;
+        return result;
     }
 }
