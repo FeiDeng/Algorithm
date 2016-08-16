@@ -25,10 +25,10 @@ Return
 
 <div id="tags" class="btn btn-xs btn-warning">Show Tags</div>
 
-<span class="hidebutton" style="display: none;">[Backtracking](/tag/backtracking/)</span></div>
+<span class="hidebutton">[Backtracking](/tag/backtracking/)</span></div>
 
 <div>
 
 <div id="similar" class="btn btn-xs btn-warning">Show Similar Problems</div>
 
-<span class="hidebutton" style="display: none;">[(H) Palindrome Partitioning II](/problems/palindrome-partitioning-ii/)</span></div>
+<span class="hidebutton">[(H) Palindrome Partitioning II](/problems/palindrome-partitioning-ii/)</span></div>
