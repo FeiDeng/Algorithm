@@ -19,7 +19,7 @@ public class Solution {
     public int dfs(TreeNode root){
         if(root == null) return 0;
         int left = Math.max(0,dfs(root.left));
-        int right = Math.max(0,dfs(root.right));
+        int right =Math.max(0, dfs(root.right));
         max = Math.max(max, left + right + root.val);
         return Math.max(left, right) + root.val;
     }
