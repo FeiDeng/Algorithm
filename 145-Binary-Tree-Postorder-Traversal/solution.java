@@ -9,23 +9,23 @@
  */
 public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        LinkedList<Integer> res=new LinkedList<>();
-        if(root==null) return res;
-        Stack<TreeNode> stack=new Stack<>();
-        //stack.push(root);
-        //TreeNode pre=null;
-        TreeNode cur=root;
-        while(cur!=null||!stack.isEmpty()){
-           if(cur!=null){
-               res.addFirst(cur.val);
-               stack.push(cur);
-               cur=cur.right;
-           }else{
-               cur=stack.pop().left;
-           }
+        List<Integer> res = new ArrayList<>();
+        if(root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+      
+        TreeNode cur = root;
+        while(cur != null || !stack.isEmpty()){
+            if(cur != null){
+                stack.push(cur);
+                 res.add(0,cur.val);
+                cur = cur.right;
+            }else{
+                cur = stack.pop();
+               
+                cur = cur.left;
             
+            }
         }
-        //Collections.reverse(res);
         return res;
     }
 }
