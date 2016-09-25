@@ -9,18 +9,19 @@
  */
 public class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res=new ArrayList<>();
-        if(root==null) return res;
-        Stack<TreeNode> stack=new Stack<>();
-        TreeNode cur=root;
-        while(cur!=null||!stack.isEmpty()){
-            if(cur!=null){
+        List<Integer> res = new ArrayList<>();
+        if(root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+      
+        TreeNode cur = root;
+        while(cur != null || !stack.isEmpty()){
+            if(cur != null){
                 stack.push(cur);
-                cur=cur.left;
+                cur = cur.left;
             }else{
-                cur=stack.pop();
+                cur = stack.pop();
                 res.add(cur.val);
-                cur=cur.right;
+                cur = cur.right;
             }
         }
         return res;
