@@ -1,23 +1,18 @@
 public class Solution {
     public void moveZeroes(int[] nums) {
-       //boundary case
-       if(nums==null||nums.length==0) return;
-       
-       //two index, left, tracking zeros, right will move; 
-       //fill with zero;
-       int left=0;
-       for(int right=0;right<nums.length;right++){
-           if(nums[right]!=0){
-               nums[left]=nums[right];
-               left++;
-           }
-       }
-       while(left<nums.length){
-           nums[left]=0;
-           left++;
-       }
-       
+        if(nums == null || nums.length == 0){
+            return;
+        }
+        int start = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] != 0){
+                nums[start] = nums[i];
+                start++;
+            }
+        }
+        while(start < nums.length){
+            nums[start] = 0;
+            start++;
+        }
     }
-    
-    
 }
