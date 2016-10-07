@@ -8,25 +8,41 @@
  */
 public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> heap=new PriorityQueue<>(new Comparator<ListNode>(){
-            @Override 
-            public int compare(ListNode l1,ListNode l2){
-                return l1.val-l2.val;
+        if( lists == null || lists.length == 0){
+            return null;
+        }
+        return divide(lists, 0, lists.length - 1);
+    }
+    
+    public ListNode divide(ListNode[] lists, int start, int end){
+        if(start == end){
+            return lists[start];
+        }
+        int mid = start + (end - start)/2;
+        ListNode left = divide(lists,start,mid);
+        ListNode right = divide(lists,mid + 1, end);
+        return merge(left,right);
+    }
+    
+    public ListNode merge(ListNode n1,ListNode n2){
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+        while(n1 != null && n2 != null){
+            if(n1.val < n2.val){
+                cur.next = n1;
+                n1 = n1.next;
+            }else{
+                cur.next = n2;
+                n2 = n2.next;
             }
-        });
-        
-        ListNode start=new ListNode(0);
-        ListNode cur=start;
-        for(ListNode node:lists){
-            if(node!=null)
-            heap.offer(node);
+            cur = cur.next;
         }
-        
-        while(!heap.isEmpty()){
-            cur.next=heap.poll();
-            cur=cur.next;
-            if(cur.next!=null) heap.offer(cur.next);
+        if(n1 != null){
+            cur.next = n1;
         }
-        return start.next;
+        if(n2 != null){
+            cur.next = n2;
+        }
+        return dummy.next;
     }
 }
